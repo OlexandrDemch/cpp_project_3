@@ -1,1 +1,33 @@
+#include <iostream>
 
+using namespace std;
+
+int main() {
+    int sales1, sales2, sales3;
+    cout << "Enter the sales level for the manager 1: ";
+    cin >> sales1;
+    cout << "Enter the sales level for the manager 2: ";
+    cin >> sales2;
+    cout << "Enter the sales level for the manager 3: ";
+    cin >> sales3;
+    float salary1, salary2, salary3;
+    salary1 = 200 + (sales1 < 500 ? sales1 * 0.03 : (sales1 < 1000 ? sales1 * 0.05 : sales1 * 0.08));
+    salary2 = 200 + (sales2 < 500 ? sales2 * 0.03 : (sales2 < 1000 ? sales2 * 0.05 : sales2 * 0.08));
+    salary3 = 200 + (sales3 < 500 ? sales3 * 0.03 : (sales3 < 1000 ? sales3 * 0.05 : sales3 * 0.08));
+    float maxSalary = max(salary1, max(salary2, salary3));
+    if (maxSalary == salary1) {
+        salary1 += 200;
+    }
+    else if (maxSalary == salary2) {
+        salary2 += 200;
+    }
+    else {
+        salary3 += 200;
+    }
+    cout << "Manager's salary 1: " << salary1 << endl;
+    cout << "Manager's salary 2: " << salary2 << endl;
+    cout << "Manager's salary 3: " << salary3 << endl;
+    cout << "The best manager receives a bonus of $200" << endl;
+
+    return 0;
+}
