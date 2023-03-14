@@ -1,1 +1,33 @@
+#include <iostream>
+using namespace std;
 
+int main() {
+    int number, sum1 = 0, sum2 = 0;
+
+    cout << "Enter a six-digit number: ";
+    cin >> number;
+
+    if (number < 100000 || number > 999999) {
+        cout << "Error: Enter a six-digit number:" << endl;
+        return 0;
+    }
+
+    for (int i = 0; i < 6; i++) {
+        if (i < 3) {
+            sum1 += number % 10;
+        }
+        else {
+            sum2 += number % 10;
+        }
+        number /= 10;
+    }
+
+   if (sum1 == sum2) {
+        cout << "This is a lucky number!" << endl;
+    }
+    else {
+        cout << "This is not a lucky number :(" << endl;
+    }
+
+    return 0;
+}
